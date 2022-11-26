@@ -27,3 +27,15 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.form-nav {
+  display: flex;
+}
+
+#back {
+  align-self: start;
+}
+
+#next {
+  align-self: end;
+}
