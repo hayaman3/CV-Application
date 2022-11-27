@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Personal = () => {
   const [personalData, setPersonalData] = useState({});
+  const personalData1 = useRef();
+  let personalData2 = ""
 
   const onChange = (e) => {
     let key = e.target.id
@@ -12,11 +14,16 @@ const Personal = () => {
       ...personalData,
       ...newData
     }))
-
+    // localStorage.setItem("")
+    // personalData1.current = e.target.value
+    // console.log(personalData1)
+    personalData2 = personalData2 + e.target.value
+    console.log(personalData2)
+    
   }
 
   // FOR CHECKING DELETE @ FINAL REVIEW
-  useEffect(() => console.log(personalData), [personalData]);
+  useEffect(() => console.log(personalData["first-name"]), [personalData]);
 
   return(
     <div className='form'>
@@ -24,10 +31,12 @@ const Personal = () => {
       <div className="first-name">
         <label className="form-label" htmlFor="first-name">First Name </label>
         <input  type="text" 
-        name="" 
-        id="first-name"  
-        className="form-input"
-        onChange={onChange}
+          // ref={personalData}
+          // value={personalData2}
+          name="" 
+          id="first-name"  
+          className="form-input"
+          onChange={onChange}
         />
       </div>
       <div className="last-name">

@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
-const Education = () => {
-  const [educationData, setEducationData] = useState({});
+const Experience = () => {
+  const [experienceData , setExperienceData] = useState({});
 
   const onChange = (e) => {
     let key = e.target.id
     let value = e.target.value
     let newData= {}
     newData[key] = value
-    setEducationData( educationData => ({
-      ...educationData,
+    setExperienceData( experienceData => ({
+      ...experienceData,
       ...newData
     }))
 
@@ -18,38 +18,39 @@ const Education = () => {
 
   return(
     <div>
-      <h2>Education</h2>
-      <div className="degree">
-        <label className="form-label" htmlFor="degree">Degree </label>
+      {/* <h2>Education</h2>
+      <div className="work-experience">
+        <label className="form-label" htmlFor="work-experience">Work Experience </label>
         <input  
         type="text" 
         name="" 
-        id="degree"  
+        id="work-experience"  
         className="form-input"
         />
       </div>
-      <div className="school">
-        <label className="form-label" htmlFor="school">University </label>
+      <div className="job-title">
+        <label className="form-label" htmlFor="job-title">Job Title </label>
         <input  type="text" 
         name="" 
-        id="school"  
+        id="job-title"  
         className="form-input"
         onChange={onChange}
         />
       </div>
-      <div className="school-address">
-        <label className="form-label" htmlFor="school-address">School Address </label>
+      <div className="work-address">
+        <label className="form-label" htmlFor="work-address">Work Address </label>
         <input  
         type="text" 
         name="" 
-        id="school-address"  
+        id="work-address"  
         className="form-input"
         onChange={onChange}
         />
-      </div>
+      </div> */}
+      Experience
     </div>
   )
 
 }
 
-export default Education;
+export default Experience;

@@ -21,7 +21,7 @@ const Education = () => {
       <h2>Education</h2>
       <div className="degree">
         <label className="form-label" htmlFor="degree">Degree </label>
-        <input  
+        <input 
         type="text" 
         name="" 
         id="degree"  

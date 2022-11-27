@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Personal from './Personal';
 import Education from './Education';
-
+import Experience from './Experience';
 
 const Form = () => {
   const [page, setPage] = useState("Personal");
@@ -12,7 +12,7 @@ const Form = () => {
   const ENUM_STATES = {
     0: <Personal />,
     1: <Education />,
-    // 3: <Experience />,
+    3: <Experience />,
   };
   
   const EnumState = () => {
@@ -31,8 +31,10 @@ const Form = () => {
     //   default:
     //     // code block
     // }
-    setCounter(counter -1)
-
+    setCounter((currentCount)=>{
+      if(currentCount===0)return
+      return currentCount -1
+    })
 
   };
 
@@ -47,9 +49,17 @@ const Form = () => {
     //   default:
     //     // code block
     // }
-    setCounter(counter +1)
+    setCounter((currentCount)=>{
+      return currentCount + 1
+    })
 
   };
+
+  const pageNav = (count)=>{
+    setCounter((currentCount)=>{
+      return currentCount + count
+    })
+  }
 
 
   return (
@@ -60,7 +70,7 @@ const Form = () => {
         {counter !== 0 &&
           <button id="back-button" onClick={goBackPage}>Back</button>
         }
-        <button onClick={goNextPage}>Next</button>
+        <button onClick={pageNav(-1)} >Next</button>
       </div>
     </div>
     // </form>

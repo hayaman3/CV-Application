@@ -24,13 +24,21 @@ body {
   flex-direction: column;
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+} */
+
+.App {
+  width: fit-content;
+  margin: auto;
 }
 
 .form-nav {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
+
 
 #back {
   align-self: start;
