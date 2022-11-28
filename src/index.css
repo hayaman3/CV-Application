@@ -28,7 +28,12 @@ body {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 } */
 
-.App {
+/* .App {
+  width: fit-content;
+  margin: auto;
+} */
+
+.Form {
   width: fit-content;
   margin: auto;
 }

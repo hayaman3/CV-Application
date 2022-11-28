@@ -18,7 +18,7 @@ const Experience = () => {
 
   return(
     <div>
-      {/* <h2>Education</h2>
+      <h2>Education</h2>
       <div className="work-experience">
         <label className="form-label" htmlFor="work-experience">Work Experience </label>
         <input  
@@ -46,8 +46,7 @@ const Experience = () => {
         className="form-input"
         onChange={onChange}
         />
-      </div> */}
-      Experience
+      </div>
     </div>
   )
 

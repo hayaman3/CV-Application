@@ -5,18 +5,19 @@ function App() {
   const [mode, setMode] = useState("Save");
 
   const changeMode = () => {
-    if(mode==="edit"){
-      setMode("Edit")
-    }else{
+    if(mode==="Edit"){
       setMode("Save")
+    }else{
+      setMode("Edit")      
     }
   }
+
 
   return (
     <div className="App">
       <button onClick={changeMode}>{mode}</button>
 
-     <Form/>
+     <Form />
 
     </div>
   );
