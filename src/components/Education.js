@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import getLocalStorageData from './handleLocalStorage';
 
 const Education = () => {
-  const [educationData, setEducationData] = useState({});
+  const [degree, setDegree] = useState(getLocalStorageData("degree"));
+  const [university, setUniversity] = useState(getLocalStorageData("university"));
+  const [universityCity, setUniversityCity] = useState(getLocalStorageData("universityCity"));
 
-  const onChange = (e) => {
-    let key = e.target.id
-    let value = e.target.value
-    let newData= {}
-    newData[key] = value
-    setEducationData( educationData => ({
-      ...educationData,
-      ...newData
-    }))
+  useEffect(() => {
+    localStorage.setItem('degree', degree);
+  }, [degree]);
 
-  }
-  
+  useEffect(() => {
+    localStorage.setItem('university', university);
+  }, [university]);
+
+  useEffect(() => {
+    localStorage.setItem('universityCity', universityCity);
+  }, [universityCity]);
 
   return(
     <div>
@@ -22,29 +24,34 @@ const Education = () => {
       <div className="degree">
         <label className="form-label" htmlFor="degree">Degree </label>
         <input 
-        type="text" 
-        name="" 
-        id="degree"  
-        className="form-input"
+          type="text"
+          value={degree}
+          name="degree"
+          id="degree"  
+          className="form-input"
+          onChange={(e) => setDegree(e.target.value)}
         />
       </div>
-      <div className="school">
-        <label className="form-label" htmlFor="school">University </label>
-        <input  type="text" 
-        name="" 
-        id="school"  
-        className="form-input"
-        onChange={onChange}
-        />
-      </div>
-      <div className="school-address">
-        <label className="form-label" htmlFor="school-address">School Address </label>
+      <div className="university">
+        <label className="form-label" htmlFor="university">University </label>
         <input  
-        type="text" 
-        name="" 
-        id="school-address"  
-        className="form-input"
-        onChange={onChange}
+          type="text" 
+          value={university}
+          name="university"
+          id="university"  
+          className="form-input"
+          onChange={(e) => setUniversity(e.target.value)}
+        />
+      </div>
+      <div className="university-city">
+        <label className="form-label" htmlFor="university-city">City </label>
+        <input  
+          type="text"
+          value={universityCity}
+          name="university-city"
+          id="university-city"
+          className="form-input"
+          onChange={(e) => setUniversityCity(e.target.value)}
         />
       </div>
     </div>

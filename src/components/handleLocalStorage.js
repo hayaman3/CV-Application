@@ -1,12 +1,5 @@
-import React, { useState, useCallback, useEffect } from 'react';
+const getLocalStorageData = (key) =>{
+    return localStorage.getItem(key) || ""
+  }
 
-import Personal from './Personal';
-import Education from './Education';
-import Experience from './Experience';
-
-const handleLocalStorage=(data)=>{
-  console.log(data)
-
-}
-
-export default handleLocalStorage;
+export default getLocalStorageData;

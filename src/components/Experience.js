@@ -1,50 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import getLocalStorageData from './handleLocalStorage';
 
 const Experience = () => {
-  const [experienceData , setExperienceData] = useState({});
+  const [position, setPosition] = useState(getLocalStorageData("position"));
+  const [company, setCompany] = useState(getLocalStorageData("company"));
+  const [companyCity, setCompanyCity] = useState(getLocalStorageData("companyCity"));
 
-  const onChange = (e) => {
-    let key = e.target.id
-    let value = e.target.value
-    let newData= {}
-    newData[key] = value
-    setExperienceData( experienceData => ({
-      ...experienceData,
-      ...newData
-    }))
+  useEffect(() => {
+    localStorage.setItem('position', position);
+  }, [position]);
 
-  }
-  
+  useEffect(() => {
+    localStorage.setItem('company', company);
+  }, [company]);
+
+  useEffect(() => {
+    localStorage.setItem('companyCity', companyCity);
+  }, [companyCity]);
 
   return(
     <div>
-      <h2>Education</h2>
-      <div className="work-experience">
-        <label className="form-label" htmlFor="work-experience">Work Experience </label>
-        <input  
-        type="text" 
-        name="" 
-        id="work-experience"  
-        className="form-input"
+      <h2>Work Experience</h2>
+      <div className="position">
+        <label className="form-label" htmlFor="position">Position </label>
+        <input 
+          type="position"
+          value={position}
+          name="position"
+          id="position"  
+          className="form-input"
+          onChange={(e) => setPosition(e.target.value)}
         />
       </div>
-      <div className="job-title">
-        <label className="form-label" htmlFor="job-title">Job Title </label>
-        <input  type="text" 
-        name="" 
-        id="job-title"  
-        className="form-input"
-        onChange={onChange}
+      <div className="company">
+        <label className="form-label" htmlFor="company">Company </label>
+        <input  
+          type="text" 
+          value={company}
+          name="company"
+          id="company"  
+          className="form-input"
+          onChange={(e) => setCompany(e.target.value)}
         />
       </div>
-      <div className="work-address">
-        <label className="form-label" htmlFor="work-address">Work Address </label>
+      <div className="university-city">
+        <label className="form-label" htmlFor="companyCity">City </label>
         <input  
-        type="text" 
-        name="" 
-        id="work-address"  
-        className="form-input"
-        onChange={onChange}
+          type="text"
+          value={companyCity}
+          name="companyCity"
+          id="university-city"
+          className="form-input"
+          onChange={(e) => setCompanyCity(e.target.value)}
         />
       </div>
     </div>

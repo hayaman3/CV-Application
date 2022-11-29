@@ -1,18 +1,18 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import Personal from './Personal';
+import ContactInformation from './ContactInformation';
 import Education from './Education';
 import Experience from './Experience';
-import handleLocalStorage from './handleLocalStorage';
 
 const enumObj = {
   0: <Personal />,
-  1: <Education />,
-  2: <Experience />,
+  1: <ContactInformation />,
+  2: <Education />,
+  3: <Experience />,
 };
 
 const Form = () => {
   const [counter, setCounter] = useState(0);
-
 
   const EnumState = () => {
     return enumObj[counter]
@@ -42,10 +42,10 @@ const Form = () => {
         {counter !== 0 &&
           <button onClick={pageNav(-1)} >back</button>
         }
-        {counter !==2  &&
+        {counter !==3  &&
           <button onClick={pageNav(1)} >Next</button>
         }
-        {counter > 1  &&
+        {counter > 2  &&
           <button onClick={saveData} >Save</button>
         }
       </div>
