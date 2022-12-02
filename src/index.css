@@ -12,10 +12,11 @@ body {
 
 .App {
   text-align: center;
+  display: flex;
+  justify-content: space-around;
 }
 
 .form {
-  margin: auto;
   padding: 10px;
   border: rgb(121, 121, 121) solid 1px;
   width: fit-content;
@@ -28,27 +29,13 @@ body {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 } */
 
-/* .App {
-  width: fit-content;
-  margin: auto;
-} */
-
-.Form {
-  width: fit-content;
-  margin: auto;
-}
-
 .form-nav {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-
-#back {
-  align-self: start;
-}
-
-#next {
-  align-self: end;
+textarea {
+  width: 100%;
+  resize: none;
 }

@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import getLocalStorageData from './handleLocalStorage';
+import React, { useEffect } from 'react';
 
-const ContactInformation = () => {
-  const [phoneNumber, setPhoneNumber] = useState(getLocalStorageData("phoneNumber"));
-  const [email, setEmail] = useState(getLocalStorageData("email"));
+const ContactInformation = (contactInformationProps) => {
+  const {
+    phoneNumber,
+    setPhoneNumber,
+    email,
+    setEmail
+  } = contactInformationProps
 
   useEffect(() => {
     localStorage.setItem('phoneNumber', phoneNumber);
@@ -14,7 +17,7 @@ const ContactInformation = () => {
   }, [email]);
 
   return(
-    <div className='form'>
+    <div className='form-contact'>
 
       <h2>Contact Information</h2>
 

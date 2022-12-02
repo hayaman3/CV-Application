@@ -1,24 +1,62 @@
 import React, { useState } from "react";
 import Form from "./components/Form";
+import CV from "./components/CV";
+import getLocalStorageData from './components/handleLocalStorage';
+
 
 function App() {
-  const [mode, setMode] = useState("Save");
+  const [firstName, setFirstName] = useState(getLocalStorageData("firstName"));
+  const [lastName, setLastName] = useState(getLocalStorageData("lastName"));
+  const [address, setAddress] = useState(getLocalStorageData("address"));
+  const [description,setDescription] =useState(getLocalStorageData("description"))
 
-  const changeMode = () => {
-    if(mode==="Edit"){
-      setMode("Save")
-    }else{
-      setMode("Edit")      
-    }
+  const personalProps = {
+    firstName,setFirstName,
+    lastName,setLastName,
+    address,setAddress,
+    description,setDescription
   }
 
+  const [phoneNumber, setPhoneNumber] = useState(getLocalStorageData("phoneNumber"));
+  const [email, setEmail] = useState(getLocalStorageData("email"));
+
+  const contactInformationProps = {
+    phoneNumber, setPhoneNumber,
+    email, setEmail
+  }
+
+  const [degree, setDegree] = useState(getLocalStorageData("degree"));
+  const [university, setUniversity] = useState(getLocalStorageData("university"));
+  const [universityCity, setUniversityCity] = useState(getLocalStorageData("universityCity"));
+
+  const educationProps = {
+    degree,setDegree,
+    university,setUniversity,
+    universityCity,setUniversityCity
+  }
+
+  const [position, setPosition] = useState(getLocalStorageData("position"));
+  const [company, setCompany] = useState(getLocalStorageData("company"));
+  const [companyCity, setCompanyCity] = useState(getLocalStorageData("companyCity"));
+
+  const experienceProps = {
+    position, setPosition,
+    company, setCompany,
+    companyCity, setCompanyCity,
+  }
+
+  const props = {
+    personalProps,
+    contactInformationProps,
+    educationProps,
+    experienceProps
+  } 
 
   return (
     <div className="App">
-      <button onClick={changeMode}>{mode}</button>
-
-     <Form />
-
+      
+      <Form {...props} />
+      <CV {...props}/>
     </div>
   );
 }

@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import getLocalStorageData from './handleLocalStorage';
+import React, { useEffect } from 'react';
 
-const Experience = () => {
-  const [position, setPosition] = useState(getLocalStorageData("position"));
-  const [company, setCompany] = useState(getLocalStorageData("company"));
-  const [companyCity, setCompanyCity] = useState(getLocalStorageData("companyCity"));
+const Experience = (experienceProps) => {
+  const {
+    position, setPosition,
+    company, setCompany,
+    companyCity, setCompanyCity,
+    } = experienceProps
 
   useEffect(() => {
     localStorage.setItem('position', position);
@@ -19,7 +20,7 @@ const Experience = () => {
   }, [companyCity]);
 
   return(
-    <div>
+    <div className='experience-form'>
       <h2>Work Experience</h2>
       <div className="position">
         <label className="form-label" htmlFor="position">Position </label>

@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import getLocalStorageData from './handleLocalStorage';
+import React, { useEffect } from 'react';
 
-const Personal = () => {
-  let [firstName, setFirstName] = useState(getLocalStorageData("firstName"));
-  const [lastName, setLastName] = useState(getLocalStorageData("lastName"));
-  const [address, setAddress] = useState(getLocalStorageData("address"));
+const Personal = (personalProps) => {
+  const {
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
+    address,
+    setAddress,
+    description,
+    setDescription
+  } = personalProps
   
   useEffect(() => {
     localStorage.setItem('firstName', firstName);
@@ -18,8 +24,12 @@ const Personal = () => {
     localStorage.setItem('address', address);
   }, [address]);
 
+  useEffect(() => {
+    localStorage.setItem('description', description);
+  }, [description]);
+
   return(
-    <div className='form'>
+    <div className='personal-form'>
       <h2>Personal Information</h2>
 
       <div className="first-name">
@@ -56,6 +66,17 @@ const Personal = () => {
           className="form-input"
           onChange={(e) => setAddress(e.target.value)}
         />
+      </div>
+
+      <div className="address">
+        <textarea 
+          id="description" 
+          rows="5" 
+          placeholder="Description..."
+          className="form-input"
+          onChange={(e) => setDescription(e.target.value)}
+        >
+        </textarea>
       </div>
 
     </div>

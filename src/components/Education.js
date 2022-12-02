@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import getLocalStorageData from './handleLocalStorage';
+import React, { useEffect } from 'react';
 
-const Education = () => {
-  const [degree, setDegree] = useState(getLocalStorageData("degree"));
-  const [university, setUniversity] = useState(getLocalStorageData("university"));
-  const [universityCity, setUniversityCity] = useState(getLocalStorageData("universityCity"));
+const Education = (educationProps) => {
+  const {    
+    degree,
+    setDegree,
+    university,
+    setUniversity,
+    universityCity,
+    setUniversityCity
+  } = educationProps
 
   useEffect(() => {
     localStorage.setItem('degree', degree);
@@ -19,7 +23,7 @@ const Education = () => {
   }, [universityCity]);
 
   return(
-    <div>
+    <div className='education-form'>
       <h2>Education</h2>
       <div className="degree">
         <label className="form-label" htmlFor="degree">Degree </label>
@@ -56,7 +60,6 @@ const Education = () => {
       </div>
     </div>
   )
-
 }
 
 export default Education;
