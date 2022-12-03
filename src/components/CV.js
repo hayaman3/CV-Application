@@ -9,7 +9,7 @@ const CV = (props) => {
   const  { position, company, companyCity, } = experienceProps
 
   return(
-    <div>
+    <div className='CV'>
       <i className="fa-regular fa-folder-open"></i>
       {firstName}
       {lastName}

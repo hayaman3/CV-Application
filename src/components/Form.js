@@ -8,7 +8,7 @@ const Form = (props) => {
   const {personalProps, contactInformationProps, educationProps, experienceProps} = props
 
   return (
-    <div className='form'>
+    <div className='Form'>
       <Personal {...personalProps}/>
       <ContactInformation {...contactInformationProps}/>
       <Education {...educationProps}/>
