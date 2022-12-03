@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 
 const Personal = (personalProps) => {
   const {
-    firstName,
-    setFirstName,
-    lastName,
-    setLastName,
+    name,
+    setName,
+    title,
+    setTitle,
     address,
     setAddress,
     description,
@@ -13,12 +13,12 @@ const Personal = (personalProps) => {
   } = personalProps
   
   useEffect(() => {
-    localStorage.setItem('firstName', firstName);
-  }, [firstName]);
+    localStorage.setItem('name', name);
+  }, [name]);
 
   useEffect(() => {
-    localStorage.setItem('lastName', lastName);
-  }, [lastName]);
+    localStorage.setItem('title', title);
+  }, [title]);
 
   useEffect(() => {
     localStorage.setItem('address', address);
@@ -28,31 +28,20 @@ const Personal = (personalProps) => {
     localStorage.setItem('description', description);
   }, [description]);
 
+
   return(
     <div className='personal-form'>
       <h2>Personal Information</h2>
 
-      <div className="first-name">
-        <label className="form-label" htmlFor="firstName">First Name </label>
+      <div className="name">
+        <label className="form-label" htmlFor="name">Name </label>
         <input  
           type="text"
-          value={firstName}
-          name="firstName"
-          id="first-name"  
+          value={name}
+          name="name"
+          id="name"  
           className="form-input"
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-      </div>
-
-      <div className="last-name">
-        <label className="form-label" htmlFor="lastName">Last Name </label>
-        <input  
-          type="text"
-          value={lastName}
-          name="lastName"
-          id="last-name"
-          className="form-input"
-          onChange={(e) => setLastName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
       </div>
 
@@ -68,10 +57,23 @@ const Personal = (personalProps) => {
         />
       </div>
 
-      <div className="address">
+      <div className="title">
+        <label className="form-label" htmlFor="address">Title </label>
+        <input  
+          type="text"
+          value={title}
+          name="title"
+          id="title"
+          className="form-input"
+          onChange={(e) => setTitle(e.target.value)}
+        />
+      </div>
+
+      <div className="description">
         <textarea 
-          id="description" 
-          rows="5" 
+          id="description"
+          value={description}
+          rows="4" 
           placeholder="Description..."
           className="form-input"
           onChange={(e) => setDescription(e.target.value)}

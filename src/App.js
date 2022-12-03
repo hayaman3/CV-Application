@@ -5,16 +5,16 @@ import getLocalStorageData from './components/handleLocalStorage';
 
 
 function App() {
-  const [firstName, setFirstName] = useState(getLocalStorageData("firstName"));
-  const [lastName, setLastName] = useState(getLocalStorageData("lastName"));
+  const [name, setName] = useState(getLocalStorageData("name"));
+  const [title, setTitle] = useState(getLocalStorageData("title"));
   const [address, setAddress] = useState(getLocalStorageData("address"));
   const [description,setDescription] =useState(getLocalStorageData("description"))
 
   const personalProps = {
-    firstName,setFirstName,
-    lastName,setLastName,
-    address,setAddress,
-    description,setDescription
+    name, setName,
+    title, setTitle,
+    address, setAddress,
+    description, setDescription
   }
 
   const [phoneNumber, setPhoneNumber] = useState(getLocalStorageData("phoneNumber"));
@@ -30,9 +30,9 @@ function App() {
   const [universityCity, setUniversityCity] = useState(getLocalStorageData("universityCity"));
 
   const educationProps = {
-    degree,setDegree,
-    university,setUniversity,
-    universityCity,setUniversityCity
+    degree, setDegree,
+    university, setUniversity,
+    universityCity, setUniversityCity
   }
 
   const [position, setPosition] = useState(getLocalStorageData("position"));
